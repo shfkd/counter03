@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var myLable: UILabel!
     var cnt : Int = 0
+    var togel : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func CounterPlus(_ sender: UIButton) {
-        if cnt <= 8 {
+        if togel == 0 {
+            if cnt == 8{
+                togel = 1
+            }
             cnt += 1
             myLable.text = String(cnt)
         }
         else{
-            myLable.text = "0"
+            
+            if cnt == 1 {
+                togel = 0
+            }
+            
+            cnt -= 1
+            myLable.text = String(cnt)
+            
         }
     }
     
